@@ -6,13 +6,13 @@ export default function SelectedPortfolioSection() {
     {
       title: "LUXURY VILLAS",
       subtitle: "Bespoke architectural estates in prime enclave locations.",
-      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-3.webp",
+      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-3.webp?_wi=2",
       href: "#properties",
     },
     {
       title: "WATERFRONT RESIDENCES",
       subtitle: "Direct coastal sanctuaries offering uninterrupted sea panoramas.",
-      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-2.webp",
+      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-2.webp?_wi=2",
       href: "#properties",
     },
     {
