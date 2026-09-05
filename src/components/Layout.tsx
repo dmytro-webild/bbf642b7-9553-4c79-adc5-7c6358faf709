@@ -10,7 +10,7 @@ export default function Layout() {
     <StyleProvider buttonVariant="default" siteBackground="none" heroBackground="none">
       <SiteBackgroundSlot />
       <NavbarFullscreenStatic
-                logo="HAKAN ERTUNÇ"
+                logo="PRIVATE REAL ESTATE & YACHTS"
                 navItems={[
                   { name: "Properties", href: "#properties" },
                   { name: "About", href: "#about" },
