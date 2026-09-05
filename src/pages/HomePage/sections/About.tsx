@@ -37,7 +37,7 @@ const AboutInline = () => {
               <img
                 src="https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788638558745-nbphsjfo.jpg"
                 alt="Hakan Ertunç"
-                className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:scale-105"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-80" />
               
