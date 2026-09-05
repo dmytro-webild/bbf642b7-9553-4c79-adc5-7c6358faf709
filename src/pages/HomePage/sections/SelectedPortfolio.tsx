@@ -6,7 +6,7 @@ export default function SelectedPortfolioSection() {
     {
       title: "LUXURY VILLAS",
       subtitle: "Bespoke architectural estates in prime enclave locations.",
-      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-3.webp?_wi=2",
+      imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-1.webp",
       href: "#properties",
     },
     {
