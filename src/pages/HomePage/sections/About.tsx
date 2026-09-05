@@ -35,7 +35,7 @@ const AboutInline = () => {
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-[#161616] border border-[#2a241a] shadow-2xl group">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
+                src="https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788638558745-nbphsjfo.jpg"
                 alt="Hakan Ertunç"
                 className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:scale-105"
               />
