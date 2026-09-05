@@ -78,40 +78,14 @@ const AboutInline = () => {
 
             <div className="space-y-5 text-[#d0c9bd] font-light text-base md:text-lg leading-relaxed border-l-2 border-[#c9a96e]/40 pl-6 my-2">
               <p>
-                Dünyanın en seçkin destinasyonlarında ultra lüks gayrimenkul ve portföy dışı mega yat yönetimi konusunda uzmanlaşmış özel danışmanlık hizmeti.
+                Private advisory service specializing in ultra-luxury real estate and off-market mega yacht management across the world's most exclusive destinations.
               </p>
               <p>
-                Ayrıcalıklı müşterilerimize maksimum gizlilik, küresel pazar erişimi ve terzi usulü çözümler sunarak benzersiz bir yaşam tarzı ve yatırım deneyimi sağlıyoruz.
+                Providing our discerning clientele with complete discretion, global market access, and bespoke solutions to deliver an unparalleled lifestyle and investment experience.
               </p>
             </div>
 
-            {/* İstatistik / Detay Özet Bilgileri */}
-            <div className="grid grid-cols-3 gap-6 pt-10 mt-8 border-t border-[#222222]">
-              <div>
-                <span className="text-2xl md:text-3xl font-serif font-light text-[#c9a96e] block">
-                  15+
-                </span>
-                <span className="text-[11px] uppercase tracking-widest text-[#a0988a] mt-1 block">
-                  Yıllık Deneyim
-                </span>
-              </div>
-              <div>
-                <span className="text-2xl md:text-3xl font-serif font-light text-[#c9a96e] block">
-                  €500M+
-                </span>
-                <span className="text-[11px] uppercase tracking-widest text-[#a0988a] mt-1 block">
-                  Portföy Hacmi
-                </span>
-              </div>
-              <div>
-                <span className="text-2xl md:text-3xl font-serif font-light text-[#c9a96e] block">
-                  100%
-                </span>
-                <span className="text-[11px] uppercase tracking-widest text-[#a0988a] mt-1 block">
-                  Gizlilik
-                </span>
-              </div>
-            </div>
+
           </motion.div>
 
         </div>
