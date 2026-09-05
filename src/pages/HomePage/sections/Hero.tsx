@@ -11,7 +11,7 @@ export default function HeroSection(): React.JSX.Element {
                 textAnimation="fade"
                 videoSrc="https://storage.googleapis.com/webild/default/templates/marbella/hero/hero.mp4"
                 tag="Le Cercle Premium Real Estate"
-                title="PRIVATE LUXURY REAL ESTATE"
+                title="HAKAN ERTUNÇ"
                 description="Exclusive beachfront villas and luxury apartments on the Costa del Sol. Your Mediterranean dream, delivered turnkey."
                 primaryButton={{ text: "View Properties", href: "#properties" }}
                 secondaryButton={{ text: "Book a Tour", href: "#contact" }}
