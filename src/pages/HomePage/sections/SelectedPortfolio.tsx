@@ -73,7 +73,7 @@ export default function SelectedPortfolioSection() {
               <img
                 src={item.imageSrc}
                 alt={item.title}
-                className="w-full h-full object-cover filter contrast-105 opacity-85 group-hover:scale-105 group-hover:opacity-95 transition-all duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
               />
 
               {/* Dark Gradient Overlay */}
