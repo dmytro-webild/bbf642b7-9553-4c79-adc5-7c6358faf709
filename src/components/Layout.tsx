@@ -10,7 +10,7 @@ export default function Layout() {
     <StyleProvider buttonVariant="default" siteBackground="none" heroBackground="none">
       <SiteBackgroundSlot />
       <NavbarFullscreenStatic
-                logo="Le Cercle"
+                logo="HAKAN ERTUNÇ"
                 navItems={[
                   { name: "Properties", href: "#properties" },
                   { name: "About", href: "#about" },
