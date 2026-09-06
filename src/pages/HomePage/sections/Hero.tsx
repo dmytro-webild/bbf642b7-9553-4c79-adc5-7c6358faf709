@@ -13,7 +13,7 @@ export default function HeroSection(): React.JSX.Element {
                 tag="Le Cercle Premium Real Estate"
                 title="HAKAN ERTUNÇ"
                 description="Exclusive beachfront villas and luxury apartments on the Costa del Sol. Your Mediterranean dream, delivered turnkey."
-                primaryButton={{ text: "CONTACT ON WHATSAPP", href: "https://wa.me/90XXXXXXXXXX?text=Merhaba%20Hakan%20Bey%2C%20gayrimenkul%20ve%20yat%20portf%C3%B6y%C3%BCn%C3%BCz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." }}
+                primaryButton={{ text: "CONTACT ON WHATSAPP", href: "https://wa.me/905376309179?text=Merhaba%20Hakan%20Bey%2C%20gayrimenkul%20ve%20yat%20portf%C3%B6y%C3%BCn%C3%BCz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." }}
                 secondaryButton={{ text: "Book a Tour", href: "#contact" }}
                 bottomText="A premium real estate brand designed for those seeking a refined way of living on the Costa del Sol"
               />
