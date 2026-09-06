@@ -18,7 +18,7 @@ export default function SelectedPortfolioSection() {
     {
       title: "YACHTS",
       subtitle: "Discreetly represented superyachts engineered for global navigation.",
-      imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788689439032-005czdzv.jpg",
+      imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788689439032-005czdzv.jpg?_wi=2",
       href: "#contact",
     },
   ];
