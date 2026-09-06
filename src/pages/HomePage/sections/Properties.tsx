@@ -13,8 +13,8 @@ export default function PropertiesSection(): React.JSX.Element {
                 title="Our Villas"
                 description="Handpicked residences in Marbella's most coveted locations, each designed for effortless Mediterranean living."
                 items={[
-                  { title: "Villa Serena", description: "A sunlit 5-bedroom retreat with infinity pool, panoramic sea views, and private garden terraces.", imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-1.webp?_wi=1" },
-                  { title: "Casa del Sol", description: "Contemporary beachfront living with floor-to-ceiling glass, rooftop lounge, and direct beach access.", imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-2.webp?_wi=1" },
+                  { title: "Villa Serena", description: "A sunlit 5-bedroom retreat with infinity pool, panoramic sea views, and private garden terraces.", imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788689400158-fjl2efyx.jpg" },
+                  { title: "Casa del Sol", description: "Contemporary beachfront living with floor-to-ceiling glass, rooftop lounge, and direct beach access.", imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788689439032-005czdzv.jpg" },
                   { title: "Villa Andalucía", description: "Traditional charm meets modern luxury — courtyard, olive grove, and a heated outdoor pool.", imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-3.webp?_wi=1" },
                   { title: "The Meridian", description: "Sleek 4-bedroom penthouse villa with smart home technology and sweeping coastal views.", imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-4.webp" },
                   { title: "Villa Blanca", description: "Minimalist white-washed estate with private cinema, spa suite, and landscaped Mediterranean gardens.", imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-5.webp" },
