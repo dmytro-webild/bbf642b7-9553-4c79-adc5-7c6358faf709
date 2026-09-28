@@ -44,10 +44,10 @@ export default function Layout() {
                   {
                     title: "Locations",
                     items: [
-                      { label: "Golden Mile", href: "#" },
-                      { label: "Puerto Banús", href: "#" },
-                      { label: "Sierra Blanca", href: "#" },
-                      { label: "La Zagaleta", href: "#" },
+                      { label: "Istanbul", href: "#" },
+                      { label: "Antalya", href: "#" },
+                      { label: "Bodrum", href: "#" },
+                      { label: "Fethiye", href: "#" },
                     ],
                   },
                   {
