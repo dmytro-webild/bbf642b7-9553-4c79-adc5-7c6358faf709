@@ -45,9 +45,9 @@ export default function Layout() {
                     title: "Locations",
                     items: [
                       { label: "Istanbul", href: "#" },
-                      { label: "Antalya", href: "#" },
                       { label: "Bodrum", href: "#" },
-                      { label: "Fethiye", href: "#" },
+                      { label: "Marbella", href: "#" },
+                      { label: "Dubai", href: "#" },
                     ],
                   },
                   {
