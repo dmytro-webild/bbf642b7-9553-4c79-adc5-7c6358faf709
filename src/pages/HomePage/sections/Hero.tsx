@@ -191,7 +191,7 @@ const HeroInline = () => {
             />
 
             <TextAnimation
-              text={"Exclusive beachfront villas and luxury apartments on the Costa del Sol. Your Mediterranean dream, delivered turnkey."}
+              text={"Exclusive villas, luxury residences and private yachts across Istanbul, Bodrum, Marbella and Dubai. A refined approach to global living."}
               variant={"fade"}
               gradientText={false}
               tag="p"
