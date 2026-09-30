@@ -61,7 +61,7 @@ export default function Layout() {
                   },
                 ]}
                 leftText="© 2026 Le Cercle. All rights reserved."
-                rightText="Marbella, Costa del Sol"
+                rightText="Türkiye,İstanbul"
               />
     </StyleProvider>
   );
