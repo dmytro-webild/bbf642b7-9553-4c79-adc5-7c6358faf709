@@ -220,7 +220,7 @@ const HeroInline = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="md:max-w-1/2 2xl:max-w-4/10 text-sm md:text-base uppercase tracking-wide leading-normal text-balance text-end text-white/75">
-            {"A premium real estate brand designed for those seeking a refined way of living on the Costa del Sol"}
+            {"A premium real estate brand designed for those seeking a refined way of living on the İstanbul"}
           </p>
         </motion.div>
         </section>
