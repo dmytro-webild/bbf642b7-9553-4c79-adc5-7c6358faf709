@@ -55,9 +55,9 @@ const HeroInline = () => {
       video.addEventListener("canplaythrough", handleCanPlayThrough, { once: true });
     }
 
-    const timeout = setTimeout(() => {
-      setIsVideoLoaded(true);
-    }, 8000);
+      const timeout = setTimeout(() => {
+        setIsVideoLoaded(true);
+      }, 3000);
 
     return () => {
       video.removeEventListener("canplaythrough", handleCanPlayThrough);
