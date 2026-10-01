@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 /* Marbella - Light & Warm Luxury */
 @import url("https://fonts.cdnfonts.com/css/argon-2");
 @import "tailwindcss";
@@ -96,7 +97,7 @@
   --color-background-accent: var(--background-accent);
 
   /* Fonts */
-  --font-sans: "Inter Tight", sans-serif;
+  --font-sans: 'Open Sans', sans-serif;
   --font-serif: "Argon", sans-serif;
   --font-tight: "Inter Tight", sans-serif;
   --font-mono: monospace;
@@ -146,7 +147,7 @@ body {
   margin: 0;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Inter Tight", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   position: relative;
   min-height: 100vh;
   overscroll-behavior: none;
@@ -159,7 +160,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Argon", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .card {
