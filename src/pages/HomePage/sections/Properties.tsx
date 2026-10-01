@@ -9,8 +9,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const items = [
   {
-    title: "Villa Serena",
-    description: "A sunlit 5-bedroom retreat with infinity pool, panoramic sea views, and private garden terraces.",
+    title: "",
+    description: "Apartments for sale in a Bosphorus-view residence with a helipad in Istanbul",
     imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1790847503708-182kwcrg.jpg",
     images: [
       "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1790847503708-182kwcrg.jpg",
