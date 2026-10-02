@@ -7,6 +7,8 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
 
+import BlogPage from './pages/blog/BlogPage';
+import BlogPostPage from './pages/blog/BlogPostPage';
 const pages = import.meta.glob('./pages/*.tsx')
 
 function getPageComponent(pageFile: string) {
@@ -226,6 +228,8 @@ function App() {
                 if (!Page) return null
                 return <Route key={route.path} path={route.path} element={<Page />} />
               })}
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
                 <Route path="/products/:slug" element={<ProductDetailPage />} />
