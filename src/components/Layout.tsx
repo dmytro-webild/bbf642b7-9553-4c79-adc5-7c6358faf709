@@ -15,7 +15,9 @@ export default function Layout() {
                   { name: "Properties", href: "#properties" },
                   { name: "About", href: "#about" },
                   { name: "Contact", href: "#contact" },
-                ]}
+                
+                  { name: "Blog", href: "/blog" },
+]}
                 ctaButton={{ text: "Book a Tour", href: "#contact" }}
               />
       <main className="flex-grow">
