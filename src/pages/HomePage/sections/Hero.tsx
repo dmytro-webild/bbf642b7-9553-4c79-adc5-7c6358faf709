@@ -36,7 +36,7 @@ type HeroVideoScrollProps = {
 
 const HeroInline = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  // FIND_VIDEO
+  // FIND_VIDEO_CHECK
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
