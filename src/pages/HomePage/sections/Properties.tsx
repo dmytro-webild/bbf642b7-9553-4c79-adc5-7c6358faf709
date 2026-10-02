@@ -21,7 +21,7 @@ const items = [
   {
     title: "Casa del Sol",
     description: "Contemporary beachfront living with floor-to-ceiling glass, rooftop lounge, and direct beach access.",
-    imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1788714937082-37vwbxua.webp"
+    imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1790963083018-mvixsfxb.jpg"
   },
   {
     title: "Villa Andalucía",
