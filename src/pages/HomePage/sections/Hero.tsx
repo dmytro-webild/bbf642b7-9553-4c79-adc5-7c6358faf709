@@ -200,10 +200,16 @@ const HeroInline = () => {
       </AnimatePresence>
 
       <div ref={sectionRef} className="relative h-[300vh] mb-20">
-        <section
-          aria-label="Hero section"
-          className="sticky top-0 overflow-hidden flex flex-col justify-between w-full h-svh"
-        >
+      <section
+        aria-label="Hero section"
+        className="sticky top-0 overflow-hidden flex flex-col justify-between w-full h-svh"
+        style={{
+          backgroundImage: `url(${POSTER})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
           <HeroBackgroundSlot />
         <video
           ref={videoRef}
