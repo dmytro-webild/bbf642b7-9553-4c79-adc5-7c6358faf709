@@ -5,11 +5,13 @@ import TextAnimation from "@/components/ui/TextAnimation";
 import ImageOrVideo from "@/components/ui/ImageOrVideo";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const items = [
   {
-    title: "",
+    title: "Villa Serena",
+    href: "/properties/villa-serena",
     description: "Apartments for sale in a Bosphorus-view residence with a helipad in Istanbul",
     imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1790847503708-182kwcrg.jpg",
     images: [
@@ -20,26 +22,31 @@ const items = [
   },
   {
     title: "Casa del Sol",
+    href: "/properties/casa-del-sol",
     description: "Contemporary beachfront living with floor-to-ceiling glass, rooftop lounge, and direct beach access.",
     imageSrc: "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1790963083018-mvixsfxb.jpg"
   },
   {
     title: "Villa Andalucía",
+    href: "/properties/villa-andaluc-a",
     description: "Traditional charm meets modern luxury — courtyard, olive grove, and a heated outdoor pool.",
     imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-3.webp?_wi=1"
   },
   {
     title: "The Meridian",
+    href: "/properties/the-meridian",
     description: "Sleek 4-bedroom penthouse villa with smart home technology and sweeping coastal views.",
     imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-4.webp"
   },
   {
     title: "Villa Blanca",
+    href: "/properties/villa-blanca",
     description: "Minimalist white-washed estate with private cinema, spa suite, and landscaped Mediterranean gardens.",
     imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-5.webp"
   },
   {
     title: "Casa Dorada",
+    href: "/properties/casa-dorada",
     description: "Golden-hour perfection — west-facing terraces, wine cellar, and an open-plan chef's kitchen.",
     imageSrc: "https://storage.googleapis.com/webild/default/templates/marbella/properties/villa-6.webp"
   }
@@ -100,15 +107,18 @@ const PropertiesInline = () => {
         <ScrollReveal variant="slide-up">
           <div className="w-content-width mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
             {items.map((item) => (
-              <div key={item.title} className="flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 h-full">
+              <Link key={item.title} to={item.href} className="group flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 h-full">
                 <div className="aspect-square rounded overflow-hidden button-secondary shadow shadow-foreground/5">
                   <ImageOrVideo imageSrc={item.imageSrc} videoSrc={item.videoSrc} />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-3xl font-semibold leading-snug">{item.title}</h3>
+                  <h3 className="text-3xl font-semibold leading-snug group-hover:underline">{item.title}</h3>
                   <p className="text-base leading-snug">{item.description}</p>
+                  <span className="text-sm font-medium mt-1 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    View property &rarr;
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </ScrollReveal>
