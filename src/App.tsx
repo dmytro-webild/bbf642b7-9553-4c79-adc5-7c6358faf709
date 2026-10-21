@@ -1,4 +1,5 @@
-import { Component, lazy, Suspense, useEffect, type ErrorInfo, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useEffect } from 'react'
+import type { ErrorInfo, ReactNode } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { ReactLenis } from 'lenis/react'
 import { routes } from './routes'
