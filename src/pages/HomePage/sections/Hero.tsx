@@ -239,16 +239,11 @@ useGSAP(() => {
         }}
       >
           <HeroBackgroundSlot />
-        <video
-          ref={videoRef}
-          src={typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches ? MOBILE_VIDEO : DESKTOP_VIDEO}
-          poster={POSTER}
-          muted
-          playsInline
-          preload="auto"
-          onError={function(e) { e.currentTarget.style.opacity = "0"; }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {typeof window !== "undefined" && window.matchMedia("(max-width: 767px), (pointer: coarse)").matches ? (
+         <MobileHeroFrames onReady={function() { setIsVideoLoaded(true); }} />
+        ) : (
+         <video ref={videoRef} src={DESKTOP_VIDEO} poster={POSTER} muted playsInline preload="auto" onError={function(e) { e.currentTarget.style.opacity = "0"; }} className="absolute inset-0 w-full h-full object-cover" />
+        )}
 
         <div
           className="absolute inset-0 bg-black/20"
