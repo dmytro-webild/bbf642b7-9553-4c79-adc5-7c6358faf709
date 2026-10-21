@@ -42,7 +42,7 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
 
   return (
     <nav data-section="navbar" className="fixed inset-0 z-1000 pointer-events-none">
-      <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto">
+      <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto rounded-xl bg-foreground/90 backdrop-blur-md px-5 py-3 shadow-lg">
         <a
           href="/"
           className="text-xl font-medium text-background"
