@@ -4,6 +4,7 @@ import { useLenis } from "lenis/react";
 
 interface LenisInstance {
   scrollTo: (target: HTMLElement | string | number, options?: { offset?: number }) => void;
+  resize: () => void;
 }
 
 export const scrollToElementWithRetry = (
@@ -22,7 +23,8 @@ export const scrollToElementWithRetry = (
     const element = document.getElementById(cleanId);
     if (element) {
       if (lenis) {
-        lenis.scrollTo(element, { offset: 0 });
+        lenis.resize();
+        lenis.scrollTo(element, { offset: -120 });
       } else {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
