@@ -42,16 +42,16 @@ const NavbarFullscreenStatic = ({ logo, navItems, ctaButton }: NavbarFullscreenS
 
   return (
     <nav data-section="navbar" className="fixed inset-0 z-1000 pointer-events-none">
-      <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto rounded-xl bg-foreground/90 backdrop-blur-md px-5 py-3 shadow-lg">
+      <div className="absolute z-10 top-5 left-1/2 -translate-x-1/2 flex items-center justify-between w-content-width pointer-events-auto rounded-xl bg-foreground/90 backdrop-blur-md px-3 sm:px-5 py-3 shadow-lg">
         <a
           href="/"
-          className="text-xl font-medium text-background"
+          className="text-base sm:text-xl font-medium text-background min-w-0"
         >
           {logo}
         </a>
 
-        <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4">
-          <Button text={ctaButton.text} href={ctaButton.href} variant="primary" animate={false} />
+        <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4 shrink-0">
+          <Button text={ctaButton.text} href={ctaButton.href} variant="primary" animate={false} className="whitespace-nowrap" />
 
           <div
             className="relative flex items-center justify-center size-9 rounded cursor-pointer primary-button"
