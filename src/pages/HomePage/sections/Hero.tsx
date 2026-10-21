@@ -45,23 +45,72 @@ const HeroInline = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleCanPlayThrough = () => {
-      setIsVideoLoaded(true);
+    let isDisposed = false;
+
+    // Force inline attributes on video for iOS Safari
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("muted", "");
+
+    const markReady = () => {
+      if (!isDisposed) {
+        setIsVideoLoaded(true);
+      }
     };
 
-    if (video.readyState >= 4) {
-      setIsVideoLoaded(true);
-    } else {
-      video.addEventListener("canplaythrough", handleCanPlayThrough, { once: true });
+    video.addEventListener("loadeddata", markReady);
+    video.addEventListener("canplay", markReady);
+    video.addEventListener("playing", markReady);
+    video.addEventListener("error", markReady);
+
+    if (video.readyState >= 2) {
+      markReady();
     }
 
-      const timeout = setTimeout(() => {
-        setIsVideoLoaded(true);
-      }, 3000);
+    const timeout = setTimeout(() => {
+      markReady();
+    }, 2500);
+
+    const initPlay = async () => {
+      try {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+          if (!isDisposed && video) {
+            video.pause();
+          }
+        }
+      } catch (err) {
+        // Autoplay policy fallback handled
+      }
+    };
+
+    initPlay();
+
+    const handleUserInteraction = () => {
+      if (video && video.paused) {
+        initPlay();
+      }
+      window.removeEventListener("touchend", handleUserInteraction);
+      window.removeEventListener("pointerup", handleUserInteraction);
+    };
+
+    window.addEventListener("touchend", handleUserInteraction, { passive: true });
+    window.addEventListener("pointerup", handleUserInteraction, { passive: true });
 
     return () => {
-      video.removeEventListener("canplaythrough", handleCanPlayThrough);
+      isDisposed = true;
       clearTimeout(timeout);
+      video.removeEventListener("loadeddata", markReady);
+      video.removeEventListener("canplay", markReady);
+      video.removeEventListener("playing", markReady);
+      video.removeEventListener("error", markReady);
+      window.removeEventListener("touchend", handleUserInteraction);
+      window.removeEventListener("pointerup", handleUserInteraction);
     };
   }, []);
 
