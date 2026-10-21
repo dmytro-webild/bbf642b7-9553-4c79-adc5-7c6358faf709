@@ -10,6 +10,7 @@ import PropertyDetailPage from './pages/PropertyDetailPage';
 
 import BlogPage from './pages/blog/BlogPage';
 import BlogPostPage from './pages/blog/BlogPostPage';
+import CiftciTowersPage from "@/pages/CiftciTowersPage";
 const pages = import.meta.glob('./pages/*.tsx')
 
 function getPageComponent(pageFile: string) {
@@ -236,6 +237,7 @@ function App() {
                 <Route path="/products/:slug" element={<ProductDetailPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
           <Route path="/properties/:slug" element={<PropertyDetailPage />} />
+      <Route path="/ciftci-towers" element={<CiftciTowersPage />} />
     </Routes>
         </Suspense>
       </RenderErrorBoundary>
