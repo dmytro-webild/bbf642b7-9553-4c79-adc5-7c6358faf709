@@ -45,6 +45,7 @@ function MobileHeroFrames({onReady}){
   const c=ref.current,s=c.parentElement,w=s.parentElement,ctx=c.getContext("2d");
   if(!ctx){onReady();return;}
   let raf=0,dead=false,ready=false;
+  const cache = new Map();
   const release=()=>{if(!dead&&!ready){ready=true;onReady();}};
   const queue=()=>{if(!dead&&!raf)raf=requestAnimationFrame(draw);};
   const load=n=>{
