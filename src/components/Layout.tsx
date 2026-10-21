@@ -12,13 +12,13 @@ export default function Layout() {
       <NavbarFullscreenStatic
                 logo="PRIVATE REAL ESTATE & YACHTS"
                 navItems={[
-                  { name: "Properties", href: "#properties" },
-                  { name: "About", href: "#about" },
-                  { name: "Contact", href: "#contact" },
+                  { name: "Properties", href: "/#properties" },
+                  { name: "About", href: "/#about" },
+                  { name: "Contact", href: "/#contact" },
                 
                   { name: "Blog", href: "/blog" },
 ]}
-                ctaButton={{ text: "Book a Tour", href: "#contact" }}
+                ctaButton={{ text: "Book a Tour", href: "/#contact" }}
               />
       <main className="flex-grow">
         <Outlet />
