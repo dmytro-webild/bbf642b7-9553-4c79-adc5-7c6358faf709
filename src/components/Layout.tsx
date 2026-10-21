@@ -15,11 +15,8 @@ export default function Layout() {
                   { name: "Properties", href: "/#properties" },
                   { name: "About", href: "/#about" },
                   { name: "Contact", href: "/#contact" },
-                
                   { name: "Blog", href: "/blog" },
-                  { name: "Ciftci Towers", href: "/ciftci-towers" },
-
-]}
+                ]}
                 ctaButton={{ text: "Book a Tour", href: "/#contact" }}
               />
       <main className="flex-grow">
