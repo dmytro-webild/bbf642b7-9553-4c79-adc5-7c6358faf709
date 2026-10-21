@@ -38,6 +38,42 @@ type HeroVideoScrollProps = {
   textAnimation: "slide-up" | "fade-blur" | "fade";
 };
 
+const HERO_SHEETS=["1792565892283-1iabxjun","1792565892284-oosyw25e","1792565892285-q4wbykax","1792565892286-7za7608n","1792565892286-zyszr3ir","1792565892287-rcvzfzjd","1792565892288-5n5tzfth","1792565892289-jn0lcb0p"].map(x=>"https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-"+x+".jpg");
+function MobileHeroFrames({onReady}){
+ const ref=useRef(null);
+ useEffect(()=>{
+  const c=ref.current,s=c.parentElement,w=s.parentElement,ctx=c.getContext("2d");
+  if(!ctx){onReady();return;}
+  let raf=0,dead=false,ready=false;
+  const release=()=>{if(!dead&&!ready){ready=true;onReady();}};
+  const queue=()=>{if(!dead&&!raf)raf=requestAnimationFrame(draw);};
+  const load=n=>{
+   if(n<0||n>=HERO_SHEETS.length)return null;
+   if(cache.has(n))return cache.get(n);
+   const im=new Image();cache.set(n,im);im.onload=queue;im.onerror=release;im.src=HERO_SHEETS[n];return im;
+  };
+  const draw=()=>{
+   raf=0;if(dead)return;
+   const r=s.getBoundingClientRect(),p=Math.max(0,Math.min(1,-w.getBoundingClientRect().top/Math.max(1,w.offsetHeight-s.offsetHeight)));
+   const f=Math.round(p*95),n=Math.floor(f/12),k=f%12,im=load(n);
+   load(n+1);load(n-1);
+   for(const key of cache.keys())if(Math.abs(key-n)>1)cache.delete(key);
+   if(!im||!im.complete||!im.naturalWidth)return;
+   const d=Math.min(window.devicePixelRatio||1,1.5),W=Math.round(r.width*d),H=Math.round(r.height*d);
+   if(c.width!==W||c.height!==H){c.width=W;c.height=H;}
+   const z=Math.max(W/960,H/540);
+   ctx.drawImage(im,(k%4)*960,Math.floor(k/4)*540,960,540,(W-960*z)/2,(H-540*z)/2,960*z,540*z);
+   c.dataset.frame=String(f);c.dataset.progress=p.toFixed(3);release();
+  };
+  const events=["scroll","resize","touchmove"];
+  events.forEach(e=>window.addEventListener(e,queue,{passive:true}));
+  const ro=new ResizeObserver(queue);ro.observe(s);
+  const timer=setTimeout(release,3000);queue();
+  return()=>{dead=true;cancelAnimationFrame(raf);clearTimeout(timer);ro.disconnect();events.forEach(e=>window.removeEventListener(e,queue));cache.forEach(im=>{im.onload=null;im.onerror=null;});cache.clear();};
+ },[]);
+ return <canvas ref={ref} aria-hidden="true" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />;
+}
+
 const HeroInline = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   // FIND_VIDEO_CHECK
