@@ -2,9 +2,13 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLenis } from "lenis/react";
 
+interface LenisInstance {
+  scrollTo: (target: HTMLElement | string | number, options?: { offset?: number }) => void;
+}
+
 export const scrollToElementWithRetry = (
   sectionId: string,
-  lenis?: any,
+  lenis?: LenisInstance | null,
   maxAttempts: number = 30,
   interval: number = 100
 ): (() => void) => {
