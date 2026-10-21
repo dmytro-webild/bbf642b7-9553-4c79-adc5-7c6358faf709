@@ -1,11 +1,26 @@
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useLenis } from 'lenis/react';
 
 import { StyleProvider } from '@/components/ui/StyleProvider';
 import SiteBackgroundSlot from '@/components/ui/SiteBackgroundSlot';
 import NavbarFullscreenStatic from "@/components/ui/NavbarFullscreenStatic";
 import FooterBasic from "@/components/sections/footer/FooterBasic";
+import { scrollToElementWithRetry } from '@/hooks/useButtonClick';
 
 export default function Layout() {
+  const location = useLocation();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (location.hash) {
+      const cancel = scrollToElementWithRetry(location.hash, lenis);
+      return () => {
+        cancel();
+      };
+    }
+  }, [location.pathname, location.hash, lenis]);
+
   return (
     <StyleProvider buttonVariant="default" siteBackground="none" heroBackground="none">
       <SiteBackgroundSlot />

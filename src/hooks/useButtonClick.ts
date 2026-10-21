@@ -2,22 +2,66 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLenis } from "lenis/react";
 
+interface LenisInstance {
+  scrollTo: (target: HTMLElement | string | number, options?: { offset?: number }) => void;
+}
+
+export const scrollToElementWithRetry = (
+  sectionId: string,
+  lenis?: LenisInstance | null,
+  maxAttempts: number = 30,
+  interval: number = 100
+): (() => void) => {
+  const cleanId = sectionId.replace(/^#/, "");
+  if (!cleanId) return () => {};
+
+  let attempts = 0;
+  let timerId: ReturnType<typeof setTimeout> | null = null;
+
+  const tryScroll = () => {
+    const element = document.getElementById(cleanId);
+    if (element) {
+      if (lenis) {
+        lenis.scrollTo(element, { offset: 0 });
+      } else {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
+    }
+
+    attempts++;
+    if (attempts < maxAttempts) {
+      timerId = setTimeout(tryScroll, interval);
+    }
+  };
+
+  tryScroll();
+
+  return () => {
+    if (timerId !== null) {
+      clearTimeout(timerId);
+    }
+  };
+};
+
 export const useButtonClick = (href?: string, onClick?: () => void) => {
   const navigate = useNavigate();
   const location = useLocation();
   const lenis = useLenis();
 
-  const scrollToElement = (sectionId: string, delay: number = 100) => {
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        if (lenis) {
-          lenis.scrollTo(element, { offset: 0 });
-        } else {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    }, delay);
+  const scrollToElement = (sectionId: string, delay: number = 0) => {
+    if (delay > 0) {
+      let cancelRetry: (() => void) | null = null;
+      const initialTimer = setTimeout(() => {
+        cancelRetry = scrollToElementWithRetry(sectionId, lenis);
+      }, delay);
+      return () => {
+        clearTimeout(initialTimer);
+        if (cancelRetry) cancelRetry();
+      };
+    } else {
+      return scrollToElementWithRetry(sectionId, lenis);
+    }
   };
 
   const handleClick = (e?: React.MouseEvent) => {
@@ -45,19 +89,17 @@ export const useButtonClick = (href?: string, onClick?: () => void) => {
         if (path !== location.pathname) {
           navigate(path);
           if (hash) {
-            setTimeout(() => {
-              scrollToElement(hash, 100);
-            }, 100);
+            scrollToElement(hash, 100);
           }
         } else if (hash) {
-          scrollToElement(hash, 50);
+          scrollToElement(hash, 0);
         }
       } else if (href.startsWith("#")) {
         e?.preventDefault();
-        scrollToElement(href.slice(1), 50);
+        scrollToElement(href.slice(1), 0);
       } else {
         e?.preventDefault();
-        scrollToElement(href, 50);
+        scrollToElement(href, 0);
       }
     }
     onClick?.();
