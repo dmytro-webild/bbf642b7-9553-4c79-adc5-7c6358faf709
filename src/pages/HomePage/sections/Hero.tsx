@@ -207,10 +207,12 @@ const HeroInline = () => {
           <HeroBackgroundSlot />
         <video
           ref={videoRef}
-          src={"https://storage.googleapis.com/webild/default/templates/marbella/hero/hero.mp4"}
+          src={typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches ? MOBILE_VIDEO : DESKTOP_VIDEO}
+          poster={POSTER}
           muted
           playsInline
           preload="auto"
+          onError={function(e) { e.currentTarget.style.opacity = "0"; }}
           className="absolute inset-0 w-full h-full object-cover"
         />
 
