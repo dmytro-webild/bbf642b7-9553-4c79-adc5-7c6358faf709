@@ -19,6 +19,10 @@ const secondaryButton = {
   href: "https://www.instagram.com/hakanertunc7/"
 };
 
+const POSTER = "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1792564824376-0pt7bg68.jpg";
+const MOBILE_VIDEO = "https://storage.googleapis.com/webild/users/user_3IuuM7YWxcNbyvExWj6VfdRg3Lb/uploaded-1792564893383-qp9bwifv.mp4";
+const DESKTOP_VIDEO = "https://storage.googleapis.com/webild/default/templates/marbella/hero/hero.mp4";
+
 gsap.registerPlugin(ScrollTrigger);
 
 type HeroVideoScrollProps = {
