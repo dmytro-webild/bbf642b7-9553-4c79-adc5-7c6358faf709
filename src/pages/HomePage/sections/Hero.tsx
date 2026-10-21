@@ -118,38 +118,30 @@ const HeroInline = () => {
     };
   }, []);
 
-  // GSAP scroll trigger fix for iOS
-  useGSAP(
-    () => {
-      if (!isVideoLoaded) return;
-
-      const video = videoRef.current;
-      if (!video) return;
-
-      const setupScrollTrigger = () => {
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.5,
-          onUpdate: (self) => {
-            if (video.duration) {
-              video.currentTime = video.duration * self.progress;
-            }
-          },
-        });
-      };
-
-      if (video.readyState >= 1) {
-        setupScrollTrigger();
-      } else {
-        video.addEventListener("loadedmetadata", setupScrollTrigger, {
-          once: true,
-        });
-      }
-    },
-    { scope: sectionRef, dependencies: [isVideoLoaded] }
-  );
+useGSAP(() => {
+ const video = videoRef.current;
+ if (!video || !sectionRef.current) return;
+ let raf = 0, progress = 0, disposed = false;
+ const apply = () => {
+  raf = 0;
+  if (disposed || video.readyState < 2 || video.seeking || !video.paused || !Number.isFinite(video.duration) || video.duration <= 0) return;
+  const lastFrame = Math.max(0, video.duration - 1 / 24);
+  const target = Math.min(lastFrame, Math.max(0, Math.round(progress * lastFrame * 24) / 24));
+  if (Math.abs(video.currentTime - target) > 1 / 48) video.currentTime = target;
+ };
+ const queue = () => { if (!disposed && !raf) raf = requestAnimationFrame(apply); };
+ const update = (self) => { progress = self.progress; queue(); };
+ const trigger = ScrollTrigger.create({ trigger: sectionRef.current, start: "top top", end: "bottom bottom", onUpdate: update, onRefresh: update });
+ progress = trigger.progress;
+ ["loadeddata", "canplay", "seeked", "pause"].forEach(name => video.addEventListener(name, queue));
+ queue();
+ return () => {
+  disposed = true;
+  if (raf) cancelAnimationFrame(raf);
+  trigger.kill();
+  ["loadeddata", "canplay", "seeked", "pause"].forEach(name => video.removeEventListener(name, queue));
+ };
+}, { scope: sectionRef, dependencies: [] });
 
   return (
     <>
